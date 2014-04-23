@@ -10,14 +10,18 @@ chrome.extension.sendMessage({}, function (response) {
             }
 			
 			//make button so the user can clear the spoilers
-            var btn = document.createElement("BUTTON");
-            var t = document.createTextNode("Turn Off Spoilers");
-            var castlist = document.getElementsByClassName('castlist_label');
-            btn.appendChild(t);
-            castlist[0].appendChild(btn);
-            btn.addEventListener('click', clearCSS, false);
-            btn.id = 'spoilerbutton';
-
+			//only make if class:episodelist exists
+			var listFlag = document.getElementsByClassName('episodelist');
+			if (listFlag.length > 0){
+				var btn = document.createElement("BUTTON");
+				var t = document.createTextNode("Turn Off Spoilers");
+				var castlist = document.getElementsByClassName('castlist_label');
+				btn.appendChild(t);
+				castlist[0].appendChild(btn);
+				btn.addEventListener('click', clearCSS, false);
+				btn.id = 'spoilerbutton';
+			}
+			
 			//the function changes the span class so it 'resets' back to before
             function clearCSS() {
                 var list = document.getElementsByClassName('episodelist');
