@@ -1,0 +1,9 @@
+.episodelist {
+color: black;
+background-color: black;
+}
+
+.episodelist:hover{
+color: white;
+background-color: black;
+}
