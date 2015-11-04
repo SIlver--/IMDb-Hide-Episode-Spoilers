@@ -1,9 +1,19 @@
-.episodelist {
+
+.episodelist, .episodelist>a:link:first-child, .episodelist>a:visited:first-child{
 color: black;
 background-color: black;
 }
 
-.episodelist:hover{
-color: white;
-background-color: black;
+.episodelist>a:link:nth-child(2), .episodelist>a:visited:nth-child(2){
+background-color: white;
+}
+
+.episodelist:hover, .episodelist:focus{
+    color: white;
+    background-color: black;
+}
+
+.episodelist:hover>a:link:first-child, .episodelist:hover>a:visited:first-child, .episodelist:active>a:visited:first-child{
+    color: #0fa7ff;
+    background-color: black;
 }
