@@ -1,7 +1,23 @@
 chrome.extension.sendMessage({}, function (response) {
     var readyStateCheckInterval = setInterval(function () {
         if (document.readyState === "complete") {
-            clearInterval(readyStateCheckInterval);  
+            clearInterval(readyStateCheckInterval);
+
+            var infoSpan = document.querySelectorAll('div.item_description');
+	    for (var i = 0; i < infoSpan.length; i++) {
+                infoSpan[i].innerHTML = infoSpan[i].innerHTML.replace(/.+/, '<span class="episodelist">' + infoSpan[i].innerHTML.match(/.+/) + '</span>');
+	    }
+			var seasonFlag = document.getElementsByClassName('episodelist');
+			if (seasonFlag.length > 0){
+				var btn = document.createElement("BUTTON");
+				var t = document.createTextNode("Turn Off Spoilers");
+				var seasonlist = document.document.getElementsByClassName('episode-list-select');
+				btn.appendChild(t);
+				seasonlist[0].appendChild(btn);
+				btn.addEventListener('click', clearCSS, false);
+				btn.id = 'spoilerbutton';
+			}
+			
 			var findSpoilers = function (){
                 //show page
                 var wrapSpanShow = document.querySelectorAll('td.character > div');
