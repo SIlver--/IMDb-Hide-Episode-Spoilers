@@ -8,12 +8,12 @@
   "description": "Hides episode number count on IMDb. No more spoilers!",
   "default_locale": "en",
   "permissions": [
-    "http://www.imdb.com/*"
+    "*://www.imdb.com/*"
   ],
   "content_scripts": [
     {
       "matches": [
-        "http://www.imdb.com/*"
+        "*://www.imdb.com/*"
       ],
       "css": [
         "src/inject/inject.css"
@@ -21,7 +21,7 @@
     },
     {
       "matches": [
-        "http://www.imdb.com/*"
+        "*://www.imdb.com/*"
       ],
       "js": [
         "src/inject/inject.js"
